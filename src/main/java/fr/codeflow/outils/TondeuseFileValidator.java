@@ -46,7 +46,7 @@ public class TondeuseFileValidator {
         Matcher matcher = pattern.matcher(lines.get(lineNumber));
 
         if (matcher.find()) {
-            throw new IllegalStateException(ERROR_MESSAGE_INVALID_FILE_CONTENT+ " : "+matcher.group()+" n'est pas une action valide");
+            throw new IllegalStateException(ERROR_MESSAGE_INVALID_FILE_CONTENT+ " : "+matcher.group()+" n'est pas une mouvement valide");
         }
     }
 

@@ -12,7 +12,7 @@ import static fr.codeflow.domaine.Direction.EST;
 import static fr.codeflow.domaine.Direction.NORD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GuidageServiceTest {
+class TondeuseMouvementServiceTest {
 
     private final MouvementTondeuseFactory mouvementTondeuseFactory = new GenericMouvementTondeuseFactory();
 
@@ -20,7 +20,7 @@ class GuidageServiceTest {
     @DisplayName("Should success when file content is valid")
     void shouldSuccessWhenFileContentIsValid() {
 
-        var guidanceService = new TondeuseMouvementService(mouvementTondeuseFactory);
+        var tondeuseMouvementService = new TondeuseMouvementService(mouvementTondeuseFactory);
 
         List<InstructionMouvement> instructionsTondeuse = new ArrayList<>();
 
@@ -37,7 +37,7 @@ class GuidageServiceTest {
 
         var pelouse = new Pelouse(5,5);
 
-        var finalPositions = guidanceService.executeInstructionsMouvement(instructionsTondeuse,pelouse);
+        var finalPositions = tondeuseMouvementService.executeInstructionsMouvement(instructionsTondeuse,pelouse);
 
         assertEquals("1 3 N 5 1 E",finalPositions);
     }

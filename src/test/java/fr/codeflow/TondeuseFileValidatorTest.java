@@ -40,7 +40,7 @@ class TondeuseFileValidatorTest {
     @DisplayName("Should throw a IllegalStateException when tondeuse sequence mouvement is invalid")
     void shouldThrowAIllegalStateExceptionWhenTondeuseSequenceMouvementIsInvalid() {
         Exception exception = assertThrows(IllegalStateException.class, () -> TondeuseFileValidator.validate(INVALID_TONDEUSE_SEQUENCE_MOUVEMENTS));
-        assertEquals(TondeuseFileValidator.ERROR_MESSAGE_INVALID_FILE_CONTENT + " : X n'est pas une action valide", exception.getMessage());
+        assertEquals(TondeuseFileValidator.ERROR_MESSAGE_INVALID_FILE_CONTENT + " : X n'est pas une mouvement valide", exception.getMessage());
     }
 
     @Test

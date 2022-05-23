@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static fr.codeflow.domaine.Direction.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AvancerActionTest {
+class AvancerMouvementTondeuseTest {
 
     private final MouvementTondeuseFactory mouvementTondeuseFactory = new GenericMouvementTondeuseFactory();
 
@@ -20,9 +20,9 @@ class AvancerActionTest {
 
         var tondeuseToGuide = TondeuseFactory.createTondeuse(6, 5, NORD, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(6,movedTondeuse.positionY());
 
@@ -34,9 +34,9 @@ class AvancerActionTest {
 
         var tondeuseToGuide = TondeuseFactory.createTondeuse(6, 5, SUD, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(4,movedTondeuse.positionY());
     }
@@ -46,9 +46,9 @@ class AvancerActionTest {
     void shouldMoveRightWhenDirectionIsWest() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(6, 5, OUEST, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(5,movedTondeuse.positionX());
     }
@@ -58,9 +58,9 @@ class AvancerActionTest {
     void shouldMoveLeftWhenDirectionIsEast() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(6, 5, EST, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(7,movedTondeuse.positionX());
     }
@@ -70,9 +70,9 @@ class AvancerActionTest {
     void shouldNotMoveWhenDirectionIsNAndTondeuseIsOnUpperBound() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(10, 10, NORD, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(10,movedTondeuse.positionY());
         assertEquals(10,movedTondeuse.positionX());
@@ -83,9 +83,9 @@ class AvancerActionTest {
     void shouldNotMoveWhenDirectionIsSAndTondeuseIsOnBottomBound() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(10, 0, SUD, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(0,movedTondeuse.positionY());
         assertEquals(10,movedTondeuse.positionX());
@@ -97,9 +97,9 @@ class AvancerActionTest {
     void shouldNotMoveWhenDirectionIsEAndTondeuseIsOnRightBound() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(10, 0, EST, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(10,movedTondeuse.positionX());
         assertEquals(0,movedTondeuse.positionY());
@@ -110,9 +110,9 @@ class AvancerActionTest {
     void shouldNotMoveWhenDirectionIsWAndTondeuseIsOnLeftBound() {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(0, 0, OUEST, "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode('A'), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(0,movedTondeuse.positionX());
         assertEquals(0,movedTondeuse.positionY());

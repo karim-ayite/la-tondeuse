@@ -13,25 +13,25 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RotationActionTest {
+class RotationMouvementTondeuseTest {
 
     private final MouvementTondeuseFactory mouvementTondeuseFactory = new GenericMouvementTondeuseFactory();
 
 
     @ParameterizedTest
-    @MethodSource("provideCharsForRotationAction")
-    @DisplayName("Should rotate tondeuse depending of the current direction and rotation action")
-    void shouldRotateTondeuseDependingOfTheCurrentDirectionAndRotationAction(char currentDirection,char rotationAction,char expectedDirection) {
+    @MethodSource("provideCharsForRotationMouvement")
+    @DisplayName("Should rotate tondeuse depending of the current direction and rotation mouvement")
+    void shouldRotateTondeuseDependingOfTheCurrentDirectionAndMouvementTondeuse(char currentDirection,char rotationMouvement,char expectedDirection) {
         var tondeuseToGuide = TondeuseFactory.createTondeuse(0, 0, Direction.valueOfCode(currentDirection), "AADAADADA");
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode(rotationAction), tondeuseToGuide, new Pelouse(10, 10));
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode(rotationMouvement), tondeuseToGuide, new Pelouse(10, 10));
 
-        var movedTondeuse = guidanceAction.execute();
+        var movedTondeuse = mouvementTondeuse.execute();
 
         assertEquals(Direction.valueOfCode(expectedDirection),movedTondeuse.direction());
     }
 
-    private static Stream<Arguments> provideCharsForRotationAction() {
+    private static Stream<Arguments> provideCharsForRotationMouvement() {
         return Stream.of(
                 Arguments.of('N', 'G','W'),
                 Arguments.of('N', 'D','E'),

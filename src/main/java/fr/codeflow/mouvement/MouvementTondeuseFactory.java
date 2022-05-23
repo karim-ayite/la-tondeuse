@@ -5,5 +5,5 @@ import fr.codeflow.domaine.Pelouse;
 import fr.codeflow.domaine.Tondeuse;
 
 public interface MouvementTondeuseFactory {
-    MouvementTondeuse createMouvementTondeuse(Mouvement action, Tondeuse tondeuseToMove, Pelouse pelouse);
+    MouvementTondeuse createMouvementTondeuse(Mouvement mouvement, Tondeuse tondeuseToMove, Pelouse pelouse);
 }

@@ -26,22 +26,22 @@ class GenericMouvementTondeuseFactoryTest {
     }
 
     @Test
-    @DisplayName("Should create a AvancerAction")
-    void shouldCreateAAvancerAction() {
+    @DisplayName("Should create a AvancerMouvementTondeuse")
+    void shouldCreateAAvancerMouvementTondeuse() {
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.AVANCER, tondeuseToGuide, new Pelouse(10, 10));
-        assertTrue(guidanceAction instanceof AvancerMouvementTondeuse);
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.AVANCER, tondeuseToGuide, new Pelouse(10, 10));
+        assertTrue(mouvementTondeuse instanceof AvancerMouvementTondeuse);
     }
 
     @ParameterizedTest
-    @DisplayName("Should create a RotationAction")
+    @DisplayName("Should create a MouvementTondeuse")
     @ValueSource(chars = {
           'D','G'
     })
-    void shouldCreateARotationAction(char action) {
+    void shouldCreateAMouvementTondeuse(char mouvement) {
 
-        var guidanceAction = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode(action), tondeuseToGuide, new Pelouse(10, 10));
-        assertTrue(guidanceAction instanceof RotationMouvementTondeuse);
+        var mouvementTondeuse = mouvementTondeuseFactory.createMouvementTondeuse(Mouvement.valueOfCode(mouvement), tondeuseToGuide, new Pelouse(10, 10));
+        assertTrue(mouvementTondeuse instanceof RotationMouvementTondeuse);
     }
 
 }
