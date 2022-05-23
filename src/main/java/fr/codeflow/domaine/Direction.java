@@ -20,7 +20,7 @@ public enum Direction {
         return Arrays.stream(Direction.values())
                 .filter(direction -> direction.getCode() == code)
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException(MessageFormat.format("Mouvement {0} inconnue ", code)));
+                .orElseThrow(() -> new IllegalArgumentException(MessageFormat.format("Direction {0} inconnue ", code)));
     }
 
     public char getCode() {
