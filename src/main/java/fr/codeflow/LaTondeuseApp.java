@@ -35,7 +35,6 @@ public class LaTondeuseApp {
 
             var tondeuseMouvementService = new TondeuseMouvementService(new GenericMouvementTondeuseFactory());
 
-
             var finalPosition = tondeuseMouvementService.executeInstructionsMouvement(instructionsMouvement, pelouse);
 
             logger.info(finalPosition);

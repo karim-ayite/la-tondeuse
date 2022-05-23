@@ -1,13 +1,9 @@
-package fr.codeflow.guidage;
+package fr.codeflow.mouvement;
 
 import fr.codeflow.domaine.Mouvement;
 import fr.codeflow.domaine.Direction;
 import fr.codeflow.domaine.Pelouse;
 import fr.codeflow.domaine.Tondeuse;
-import fr.codeflow.mouvement.AvancerMouvementTondeuse;
-import fr.codeflow.mouvement.GenericMouvementTondeuseFactory;
-import fr.codeflow.mouvement.MouvementTondeuseFactory;
-import fr.codeflow.mouvement.RotationMouvementTondeuse;
 import fr.codeflow.outils.TondeuseFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

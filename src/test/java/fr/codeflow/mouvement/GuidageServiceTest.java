@@ -1,11 +1,7 @@
-package fr.codeflow.guidage;
+package fr.codeflow.mouvement;
 
 import fr.codeflow.domaine.Pelouse;
 import fr.codeflow.domaine.Tondeuse;
-import fr.codeflow.mouvement.GenericMouvementTondeuseFactory;
-import fr.codeflow.mouvement.InstructionMouvement;
-import fr.codeflow.mouvement.MouvementTondeuseFactory;
-import fr.codeflow.mouvement.TondeuseMouvementService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
